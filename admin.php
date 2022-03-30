@@ -1,8 +1,10 @@
     <!-- script pour afficher les icones -->
-<script src="https://kit.fontawesome.com/45e38e596f.js" crossorigin="anonymous"></script>
-<?php
+ <script src="https://kit.fontawesome.com/45e38e596f.js" crossorigin="anonymous"></script>
+ <?php
 require('connexion.php');
 try{
+
+
 
 // pagination 
 $nbrElementParPage = 4;
@@ -41,6 +43,7 @@ if($stmt === false){
 
  require('fonctions.php');
 
+
 // nom de l'image
 
 if(isset($_FILES["mon_fichier"])){
@@ -50,7 +53,7 @@ $dest = "images/";
 
 
 
-// on insert la valeur nom de l'image dans nom_image(bdd)
+// on insert la vleur nom de l'image dans nom_image(bdd)
 insereBddDossier($pdo,$pname,$psize,$dest);
 
 
@@ -59,12 +62,7 @@ insereBddDossier($pdo,$pname,$psize,$dest);
 
 ?>
 
-
 <!-- Partie HTML-->
-
-
-<?php include 'login.php'; ?>
-
 <center>
 <h1>Gestion d'images</h1><br/>
  
@@ -79,10 +77,17 @@ insereBddDossier($pdo,$pname,$psize,$dest);
     <?php $i=0; foreach($rows as $row): ?>
         <img src="<?= $row['chemin'],$row['file_name'] ; ?>" alt="" />
         <span><?= $row['id'] ; ?></span>
+        <a href='admin.php?supprime=true'>Supprimer</a>
         
         <?php $i++; if($i%2==0){ ?> <br> <?php } ?>
         
-    <?php endforeach; ?>
+    <?php endforeach; 
+
+    if (isset($_GET['supprime'])) {
+    // on lance la fonction pour supprimer
+    supprimeImg($pdo,$row['file_name'],$row['id']);
+    header("location: admin.php");
+    } ?>
     </div>
 
 
@@ -102,16 +107,19 @@ insereBddDossier($pdo,$pname,$psize,$dest);
 
 
 <div id='bouttonscan'>
-<a href='index.php?scan=true'>Scan</a>
+<a href='admin.php?scan=true'>Scan</a>
 </div>
-
-
 
 <?php 
 // imporation du module pour afficher transferer les fichiers
 include 'scan.php'; ?>
+
 <center/>
 
 <style>
 <?php include 'style.css'; ?>
+
+div#listePagination {
+padding-left: 6%;
+}
 </style>
