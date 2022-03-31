@@ -6,9 +6,10 @@ Création d'un systeme d'un programme en PHP perméttant le téléverssement d'i
 
 - 1 Installer xampp  
 - 2 placer le dossier phpupload dans xampp/htdocs  
-- 3 configurer votre base de dp,,ée de sorte a ce que le programme puisse s'y connecter (Dans notre programme la base de donnée s'appelle "testexo2" et la table s'apelle "images)  
-- 4 lancer xampp Apache/mysql  
-- 5 tapper sur votre navigateur http://localhost:8080/phpupload/  
+- 3 configurer votre base de donnée de sorte a ce que le programme puisse s'y connecter (Dans notre programme la base de donnée s'appelle "testexo2" et la table s'apelle "images) 
+- 4 Configuer la table 'Users' pour configurer le mot de passe de l'admin 
+- 5 lancer xampp Apache/mysql  
+- 6 tapper sur votre navigateur http://localhost:8080/phpupload/  
 
 # Utilisation
 Vous pouvez séléctionner une image au travers du bouton "Choisir un fichier" ensuite vous cliquer sur envoyer  
