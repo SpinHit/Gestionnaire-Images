@@ -77,15 +77,25 @@ insereBddDossier($pdo,$pname,$psize,$dest);
     <?php $i=0; foreach($rows as $row): ?>
         <img src="<?= $row['chemin'],$row['file_name'] ; ?>" alt="" />
         <span><?= $row['id'] ; ?></span>
+<<<<<<< Updated upstream
         <a href='admin.php?supprime=true'>Supprimer</a>
+=======
+        <a href='<?php echo "admin.php?idImage=" . $row['id'] ?>'>Supprimer</a>
+>>>>>>> Stashed changes
         
         <?php $i++; if($i%2==0){ ?> <br> <?php } ?>
         
     <?php endforeach; 
 
+<<<<<<< Updated upstream
     if (isset($_GET['supprime'])) {
     // on lance la fonction pour supprimer
     supprimeImg($pdo,$row['file_name'],$row['id']);
+=======
+    if (isset($_GET['idImage'])) {
+    // on lance la fonction pour supprimer
+    supprimeImg($pdo,$row['file_name'],$_GET['idImage']);
+>>>>>>> Stashed changes
     header("location: admin.php");
     } ?>
     </div>
